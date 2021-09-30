@@ -5,7 +5,7 @@ import MovieModal from './MovieModal';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-const Row= ({title,fetchUrl,id})=> {
+const Row= ({title,fetchUrl,id, addRating})=> {
     const base_url = "https://image.tmdb.org/t/p/original/";
     const [movies, setMovies] = useState([])
     const [modalVisibility,setModalVisibility] = useState(false);
@@ -13,7 +13,7 @@ const Row= ({title,fetchUrl,id})=> {
 
     //A snippet of code which runs based on a specific condition/variable
     useEffect(()=>{
-
+        console.log(id, fetchUrl)
         //if [], run once when the row loads, and dont run again 
 
         async function fetchData(){
@@ -54,7 +54,7 @@ const Row= ({title,fetchUrl,id})=> {
                 </div>
                 <div className="slider__arrow-right" ><span className="arrow" onClick={()=>{document.getElementById(id).scrollLeft+=(window.innerWidth-80)}}><ArrowForwardIosIcon/></span></div>
             </div>
-            {modalVisibility && <MovieModal {...movieSelected} setModalVisibility={setModalVisibility}/>}
+            {modalVisibility && <MovieModal {...movieSelected} setModalVisibility={setModalVisibility} addRating={addRating} />}
         </section>
     )
 }

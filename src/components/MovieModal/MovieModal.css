@@ -2,7 +2,7 @@
   position: relative;
   width: auto;
   height: auto;
-  max-width: 800px;
+  max-width: 900px;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
     0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   background: #111;
@@ -14,10 +14,10 @@
 .modal__poster-img {
   margin-left: 5%;
   margin-top: 5%;
-  height: 300px;
+  height: 250px;
 }
 .modal__content {
-  padding: 40px;
+  padding: 10px;
 }
 .modal__header {
   padding: 40px;
@@ -26,7 +26,7 @@
 }
 .modal__title {
   padding: 0;
-  font-size: 40px;
+  font-size: 30px;
   margin: 16px 0;
 }
 .modal__details {
@@ -63,8 +63,8 @@
 .presentation {
   z-index: 1200;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 100;
+  left: 100;
   background: rgba(0, 0, 0, 0.4);
 }
 .modal-close {

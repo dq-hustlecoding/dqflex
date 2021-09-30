@@ -5,7 +5,14 @@ import Row from '../Row';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import ReactStars from 'react-stars';
 
-const MovieModal = ({poster_path,movieId,title,genres,url,rating_avg,rating_count,setModalVisibility, setMyRating}) => {
+const MovieModal = ({poster_path,movieId,title,genres,url,rating_avg,rating_count,setModalVisibility, addRating}) => {
+
+    const onRating = (rating) => {
+        const rating_with_id = `${movieId}:${rating}`;
+        console.log(rating_with_id);    
+        addRating(rating_with_id);
+        setModalVisibility(false);
+    }
 
     return (
         <div className="presentation" role="presentation">
@@ -20,14 +27,14 @@ const MovieModal = ({poster_path,movieId,title,genres,url,rating_avg,rating_coun
                         />
                         <div className="modal__content">
                             <p className="modal__details"><span className="modal__user-perc">Genre: </span> {genres.replaceAll('|', ' | ')}</p>
-                            <h4 className="modal__title">{title}</h4>
+                            <h3 className="modal__title">{title}</h3>
                             <p className="modal__overview">Vote Average: {rating_avg.toFixed(2)}</p>
                             <p className="modal__overview">Vote Count: {rating_count}</p>
                             <div className="modal__header">
                                 <button className="banner__button play" onClick={() => {window.open(url)}}><PlayArrowIcon />Detail</button>
                                 <ReactStars
                                     count={5}
-                                    onChange={setMyRating}
+                                    onChange={onRating}
                                     size={24}
                                     color2={'#ffd700'} />
                             </div>
