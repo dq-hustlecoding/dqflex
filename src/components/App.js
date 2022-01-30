@@ -7,7 +7,7 @@ import './App.css';
 
 const App=()=> {
 
-  const [personalizeUrl, setPersonalizeUrl] = useState("https://hustlecoding.link/all");
+  const [personalizeUrl, setPersonalizeUrl] = useState("http://api.dqflex.kro.kr:8080/all");
   const [myRating, setMyRating] = useState([]);
 
   const addRating = (rating) => {
@@ -15,7 +15,7 @@ const App=()=> {
     myRating.push(rating);
     setMyRating(myRating);
     const user_based_param = myRating.join("&params=");
-    const url = `https://hustlecoding.link/user-based/?params=${user_based_param}`;
+    const url = `http://api.dqflex.kro.kr:8080/user-based/?params=${user_based_param}`;
     setPersonalizeUrl(url);
   }
 
@@ -23,7 +23,7 @@ const App=()=> {
 
       if (myRating.length > 0) {
           const user_based_param = myRating.join("&params=");
-          const url = `https://hustlecoding.link/user-based/?params=${user_based_param}`;
+          const url = `http://api.dqflex.kro.kr:8080/user-based/?params=${user_based_param}`;
           setPersonalizeUrl(url);
       }
       console.log(personalizeUrl);

@@ -43,7 +43,7 @@ const MovieModal = ({poster_path,movieId,title,genres,url,rating_avg,rating_coun
                     <Row
                         title="You may also like..."
                         id={movieId}
-                        fetchUrl={`https://hustlecoding.link/item-based/${movieId}`}
+                        fetchUrl={`http://api.dqflex.kro.kr:8080/item-based/${movieId}`}
                     />
                 </div>
             </div>
