@@ -18,7 +18,11 @@ const Row= ({title,fetchUrl,id, addRating})=> {
 
         async function fetchData(){
             //Dont move until we get the API answer
-            const request = await axios.get(fetchUrl);
+            const request = await axios.get(fetchUrl, {
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                }
+            });
             // GET REQUEST  = "https://api.themoviedb.org/3/fetchUrl"
             setMovies(request.data.result)
             return request;

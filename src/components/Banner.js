@@ -14,7 +14,11 @@ const Banner= ()=> {
 
     useEffect(() => {
         async function fetchData(){
-            const request = await axios.get(requests.fetchDQsPick)
+            const request = await axios.get(requests.fetchDQsPick, {
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                }
+            });
             //Give to our movie hook one of all the movies randomly
             setMovie(request.data.result[
                 Math.floor(Math.random() * request.data.result.length -1)
