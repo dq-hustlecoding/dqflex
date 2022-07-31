@@ -1,38 +1,37 @@
-import React, { useEffect, useState } from 'react';
-import Row from "./Row";
+import React, { useEffect, useState } from "react";
+import { baseUrl } from "../API/constants";
+import requests from "../API/requests";
+import "./App.css";
 import Banner from "./Banner";
 import Nav from "./Nav";
-import requests from "../API/requests";
-import './App.css';
+import Row from "./Row";
 
-const App=()=> {
-
-  const [personalizeUrl, setPersonalizeUrl] = useState("http://api.dqflex.kro.kr:8080/all");
+const App = () => {
+  const [personalizeUrl, setPersonalizeUrl] = useState(baseUrl + "/all");
   const [myRating, setMyRating] = useState([]);
 
   const addRating = (rating) => {
-    console.log('before;;', myRating);
+    console.log("before;;", myRating);
     myRating.push(rating);
     setMyRating(myRating);
     const user_based_param = myRating.join("&params=");
-    const url = `http://api.dqflex.kro.kr:8080/user-based/?params=${user_based_param}`;
+    const url = `${baseUrl}/user-based/?params=${user_based_param}`;
     setPersonalizeUrl(url);
-  }
+  };
 
   useEffect(() => {
-
-      if (myRating.length > 0) {
-          const user_based_param = myRating.join("&params=");
-          const url = `http://api.dqflex.kro.kr:8080/user-based/?params=${user_based_param}`;
-          setPersonalizeUrl(url);
-      }
-      console.log(personalizeUrl);
+    if (myRating.length > 0) {
+      const user_based_param = myRating.join("&params=");
+      const url = `${baseUrl}/user-based/?params=${user_based_param}`;
+      setPersonalizeUrl(url);
+    }
+    console.log(personalizeUrl);
   });
 
   return (
     <div className="app">
       {/**NAV */}
-      <Nav/>
+      <Nav />
       {/*BANNER*/}
       <Banner />
 
@@ -76,6 +75,6 @@ const App=()=> {
       />
     </div>
   );
-}
+};
 
 export default App;
