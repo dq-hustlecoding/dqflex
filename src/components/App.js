@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { Alert, AlertTitle } from '@material-ui/lab';
 import { baseUrl } from "../API/constants";
 import requests from "../API/requests";
 import "./App.css";
 import Banner from "./Banner";
 import Nav from "./Nav";
 import Row from "./Row";
+
+
 
 const App = () => {
   const [personalizeUrl, setPersonalizeUrl] = useState(baseUrl + "/all");
@@ -34,6 +37,10 @@ const App = () => {
       {/*BANNER*/}
       <Banner />
 
+      <Alert severity="info">
+        <AlertTitle>Info</AlertTitle>
+        This website is for the educational purpose only. This site does not collect or store any personal information from visitors. You are welcome to browse and use our resources without sharing any personal details.  — <a href="https://choigyumin.pages.dev"><strong>Read more about developer.</strong></a>
+      </Alert>
       <Row
         title="Recommend For You"
         id="RF"
